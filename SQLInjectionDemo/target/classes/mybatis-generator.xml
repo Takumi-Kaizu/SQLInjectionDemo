@@ -13,7 +13,7 @@
             targetPackage="com.tk_lab.demo.entity"
             targetProject="SQLInjectionDemo/src/main/java" />
         <sqlMapGenerator targetPackage="mappers"
-            targetProject="demo3/src/main/resources" />
+            targetProject="SQLInjectionDemo/src/main/resources" />
         <javaClientGenerator
             targetPackage="com.tk_lab.demo.mapper"
             targetProject="SQLInjectionDemo/src/main/java" type="XMLMAPPER" />
