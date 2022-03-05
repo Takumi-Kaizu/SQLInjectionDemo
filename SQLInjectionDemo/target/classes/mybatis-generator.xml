@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry
+        location="C:\opt\pleiades_2020_12\mysql-connector-java\mysql-connector-java-8.0.11.jar"></classPathEntry>
+    <!-- targetRuntime に MyBatis3Simple を指定することで **example クラスの生成を抑制する -->
+    <context id="mydb" targetRuntime="MyBatis3Simple">
+        <jdbcConnection
+            connectionURL="jdbc:mysql://localhost:3306/demodb?characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;useSSL=false"
+            driverClass="com.mysql.cj.jdbc.Driver" password="Test1234"
+            userId="root" />
+        <javaModelGenerator
+            targetPackage="com.tk_lab.demo.entity"
+            targetProject="SQLInjectionDemo/src/main/java" />
+        <sqlMapGenerator targetPackage="mappers"
+            targetProject="demo3/src/main/resources" />
+        <javaClientGenerator
+            targetPackage="com.tk_lab.demo.mapper"
+            targetProject="SQLInjectionDemo/src/main/java" type="XMLMAPPER" />
+        <table schema="demodb" tableName="demo_table" />
+    </context>
+</generatorConfiguration>
