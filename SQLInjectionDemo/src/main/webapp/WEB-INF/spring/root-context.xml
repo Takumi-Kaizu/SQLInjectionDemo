@@ -2,7 +2,52 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+		<!-- MySQL dataSource -->
+    <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName"
+            value="com.mysql.cj.jdbc.Driver"></property>
+        <!-- ************************************* -->
+        <!-- allowPublicKeyRetrieval=true について -->
+        <!-- java.sql.SQLNonTransientConnectionException を抑制する定義 -->
+        <!-- MySQL へ接続する際、コマンドでの接続を行った上で(後で)、 -->
+        <!-- プログラムから接続する分には問題ない。 -->
+        <!-- しかし、システムを再起動してコマンド接続を行わず、 -->
+        <!-- 最初からプログラムから DB への接続を試みると上記の例外が発生するらしい(実験済み) -->
+        <property name="url"
+            value="jdbc:mysql://localhost:3306/demodb?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="Test1234"></property>
+    </bean>
+
+    <!-- mybatis SqlSessionFactoryBean -->
+    <!-- ******************************************************************** -->
+    <!-- 通常、MyBatis 設定ファイル(本プロジェクトでは mybatis-config.xml) で -->
+    <!-- SqlSessionFactory を定義するが、SqlSessionFactoryBean を使用すると、 -->
+    <!-- MyBatis 設定ファイルへの記述が不要になる (併用もできる)。 -->
+    <!-- ******************************************************************** -->
+    <bean id="sqlSessionFactory"
+        class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation"
+            value="classpath:/mybatis-config.xml"></property>
+        <!-- *********************************************************** -->
+        <!-- 各 Mapper.java に紐づく Mapper.xml ファイルの場所を指定する -->
+        <!-- 下記を指定しない場合、Mapper.java と同じパッケージを検索する -->
+        <!-- 本プロジェクトのパッケージ構成だと未指定の場合、エラーが発生する -->
+        <!-- *********************************************************** -->
+        <property name="mapperLocations"
+            value="classpath:mappers/**/*Mapper.xml"></property>
+    </bean>
+
+    <!-- ******************************************************************** -->
+    <!-- 指定したパッケージ内の各 Mapper.java をスキャンし、Spring 配下に置く -->
+    <!-- 各 Mapper を個別に指定する必要がないため、楽になる -->
+    <!-- ******************************************************************** -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage"
+            value="com.tk_lab.demo.mapper" />
+    </bean>
 </beans>
