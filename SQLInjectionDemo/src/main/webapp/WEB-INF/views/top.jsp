@@ -19,19 +19,23 @@
     <div class="container">
         <h1 class="py-4 display-3 justify-content-center">SQLインジェクションを体験！</h1>
         <nav class="nav nav-tabs nav-pills nav-fill">
-            <a class="nav-link active" aria-current="page" href="#">このシステムについて</a>
-            <a class="nav-link" href="#">実体験！SQLインジェクション</a> <a
-                class="nav-link" href="#" tabindex="-1"
+            <a class="nav-link active" aria-current="page" href="./top">このシステムについて</a>
+            <a class="nav-link" href="./sql_Injection">実体験！SQLインジェクション</a>
+            <a class="nav-link" href="./lib_and_env" tabindex="-1"
                 aria-disabled="true">使用ライブラリ・環境</a>
         </nav>
         <div class="row">
-            <div class="col-sm-12 py-3" style="background-color: red;">
+            <div class="col-sm-12 py-3">
                 <h2>このシステムについて</h2>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-sm-10 py-3"
-                style="background-color: yellow;">aaaaaa</div>
+            <div class="col-sm-10 py-3">
+                本システムは、セキュリティ知識向上を目的として作成しました。<br>
+                情報社会である昨今、セキュリティ意識/知識を持つことはエンジニアとして欠かすことのできないものとなっています。<br>
+                セキュリティを意識しないで作成したアプリにはどのような脆弱性があるのでしょうか。<br>
+                本システムはこのような観点のもと、サイバー攻撃として最も有名な SQL インジェクションを疑似体験することができます。<br>
+            </div>
         </div>
     </div>
     <script
