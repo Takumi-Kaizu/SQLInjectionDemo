@@ -19,10 +19,10 @@
     <div class="container">
         <h1 class="py-4 display-3 justify-content-center">SQLインジェクションを体験！</h1>
         <nav class="nav nav-tabs nav-pills nav-fill">
-            <a class="nav-link active" aria-current="page" href="./top">このシステムについて</a>
+            <a class="nav-link" aria-current="page" href="./top">このシステムについて</a>
             <a class="nav-link" href="./sql_Injection">実体験！SQLインジェクション</a>
             <a class="nav-link" href="./x_site_scripting">実体験！クロスサイトスクリプティング</a>
-            <a class="nav-link" href="./data_update">テストデータの登録/更新/削除</a>
+            <a class="nav-link active" href="./data_update">テストデータの登録/更新/削除</a>
             <a class="nav-link" href="./lib_and_env" tabindex="-1"
                 aria-disabled="true">使用ライブラリ・環境</a>
         </nav>
